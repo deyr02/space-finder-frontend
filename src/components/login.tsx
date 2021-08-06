@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { ChangeEvent } from 'react';
 import { useState } from 'react';
+import { User, UserAttribute } from '../model/Model';
 import { AuthService } from '../services/AuthService';
+import history from '../utils/history';
 
 interface LoginProps{
-    authservice:AuthService
+    authservice:AuthService,
+    setUser:(user:User) =>void,
+    setUserAttributes: (userAttributes: UserAttribute[]) => void;
 }
 interface LoginState{
     userName:string,
@@ -13,7 +17,7 @@ interface LoginState{
     loginSuccessful:boolean,
 }
 
-export default function Login({authservice}: LoginProps){
+export default function Login({authservice, setUser, setUserAttributes}: LoginProps){
     
     const[loginState, setLoginState] = useState<LoginState>({
         userName:'',
@@ -28,6 +32,10 @@ export default function Login({authservice}: LoginProps){
 
         if (result){
            setLoginState({...loginState, loginAttempted:true, loginSuccessful:true});
+           setUser(result);
+           const attributes= await authservice.getUserAttributes(result);
+           setUserAttributes(attributes!)
+           history.push('/profile');
         }
         else{
            setLoginState({...loginState, loginAttempted:true, loginSuccessful:false});
