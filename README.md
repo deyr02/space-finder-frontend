@@ -1,3 +1,62 @@
+# Installing Jest in the project
+
+## first we need to change "react-script test" to "jest in the project.json
+
+"scripts": {
+"start": "react-scripts start",
+"build": "react-scripts build",
+"test": "jest",
+"eject": "react-scripts eject"
+},
+
+## Second
+
+With new package versions, new bugs are also coming in.
+TypeError: Jest: a transform must export a `process` function.
+This error comes from an update in ts-jest 27, incompatible with Jest 26, used by React
+Solution:use ts-jest 26.5.4:
+
+    npm i ts-jest@26.5.4
+
+## Third we need to install
+
+-> react typescript jest library
+-> jest typescript parser
+-> node library
+npm i @types/jest ts-jest ts-node
+run comand to intall pacakages
+
+## fourth we need to create a jest configureation file in the root direcotry
+
+filename : jest.config.ts
+
+and Include the following lines
+
+---
+
+        import type { Config } from '@jest/types';
+        const config:Config.InitialOptions = {
+            roots: [
+                "<rootDir>/test",
+                "<rootDir>/src"
+            ],
+            transform: {
+                "^.+\\.tsx?$": "ts-jest"
+            },
+            setupFilesAfterEnv: [
+                "@testing-library/jest-dom/extend-expect"
+            ],
+            testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+            moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
+            testEnvironment: "jsdom",
+            collectCoverage: true,
+            collectCoverageFrom: [
+                'src/**/*.{ts,tsx}'
+            ]
+        };
+        export default config;
+    _______________________________________
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
