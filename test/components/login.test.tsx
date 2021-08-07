@@ -30,7 +30,7 @@ describe('Login component test suite', ()=>{
 
     beforeEach(()=>{
         container = document.createElement('div');
-        document.appendChild(container);
+        document.body.appendChild(container);
         ReactDOM.render(
             <Login authservice={authServiceMock as any} setUser= {setUserMock} setUserAttributes={setUserAttributeMock}/>
             , container)
