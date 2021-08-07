@@ -46,7 +46,17 @@ describe('Login component test suite', ()=>{
 
 
 
-    test('initial test', ()=>{
-        expect(true).toBeTruthy();
+    test('Render correctly initial documents', ()=>{
+        const title = document.querySelector('h2'); //query selector;
+        //assertion
+        expect(title!.textContent).toBe("Please Login");
+
+        const inputs = document.querySelectorAll('input');
+        expect(inputs).toHaveLength(3);
+        expect(inputs[0].value).toBe('');
+        expect(inputs[1].value).toBe('');
+        expect(inputs[2].value).toBe('Login');
+        const label = document.querySelector('label');
+        expect(label).not.toBeInTheDocument();
     })
 })
