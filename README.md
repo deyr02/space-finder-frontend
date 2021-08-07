@@ -57,6 +57,26 @@ and Include the following lines
         export default config;
     _______________________________________
 
+
+# excluding file from test coverage 
+## to exclude file test covere, we need add the file fath in collectCoverageFrom in the jest.config.ts file
+similar below
+_________________________
+    collectCoverageFrom: [
+        'src/**/*.{ts,tsx}',
+        '!src/services/**', //theser are the file excluded from the test coverage
+        '!src/react-app-env.d.ts' // this one too
+    ]
+_________________________
+
+## Anothe way to exclude file from test coverage by simpley comment the below line on the top of the compnent file
+__________________________
+/*istanbul ignore file */
+export default function App(){
+    .........
+}
+_________________________
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

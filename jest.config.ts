@@ -15,7 +15,9 @@ import type { Config } from '@jest/types';
     testEnvironment: "jsdom",
     collectCoverage: true,
     collectCoverageFrom: [
-        'src/**/*.{ts,tsx}'
+        'src/**/*.{ts,tsx}',
+        '!src/services/**',
+        '!src/react-app-env.d.ts'
     ]
  };
  export default config;
