@@ -10,6 +10,7 @@ export default function Navbar({user}:Props){
     return(
         <div className='navbar'>
             <Link to='/'>Home</Link>
+            <Link to='/Space'>Space</Link>
             <Link to='/profile'>Profile</Link>
            
             {

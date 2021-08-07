@@ -8,12 +8,15 @@ import history from '../utils/history';
 import Navbar from './Navbar';
 import Home from './Home';
 import Profile from './Profile';
+import { DataService } from '../services/DataService';
+import Spaces from './spaces/Spaces';
 
 
 
 function App() {
 
   const authService:AuthService = new AuthService();
+  const dataService:DataService = new DataService();
   const[currentUser, setCurrentUser]= useState<User|undefined>({
     userName: undefined,
     email:undefined
@@ -37,6 +40,9 @@ function App() {
            <Navbar user={currentUser}></Navbar>
            <Switch>
              <Route exact path='/' component={Home}/>
+             <Route exact path='/space'>
+               <Spaces dataService={dataService}></Spaces>
+             </Route>
              <Route exact path='/login'>
                <Login authservice={authService} setUser={setUser} setUserAttributes={setUserAttribute} /> 
              </Route>
