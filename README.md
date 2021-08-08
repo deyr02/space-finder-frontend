@@ -99,14 +99,14 @@ _______________________________________
       "args": [
         "${fileBasenameNoExtension}",
         "--config",
-        "jest.config.ts" //change here
-      ],
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true,
-      "windows": {
-        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
-      }
+"jest.config.js"
+],
+"console": "integratedTerminal",
+"internalConsoleOptions": "neverOpen",
+"disableOptimisticBPs": true,
+"windows": {
+"program": "${workspaceFolder}/node_modules/jest/bin/jest",
+}
 ___________________________________________________________________
 Now. our debugger ready to work. 
 
