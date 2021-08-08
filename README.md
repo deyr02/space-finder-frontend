@@ -77,6 +77,54 @@ export default function App(){
 }
 _________________________
 
+
+# Debugging jest test
+## First we need to creat debug configuration file
+-> first we need to click on debugging tab 
+-> click on  "Create launch.json file"
+-> Choose "Node Js" option (It will create a launch.json file in .vscode/ directory)
+![](debugging_config_1.jpg)
+
+## we have get the right debugging confifuration from https://github.com/microsoft/vscode-recipes
+-> Choose debugging-jest-tests
+-> copy the following codes and past it under confguration  in the launch.json file.
+-> change the "jest.config.js" to "jest.config.ts". 
+-> we also need to make sure ts-node is installed. 
+
+_______________________________________
+"type": "node",
+      "request": "launch",
+      "name": "Jest Current File",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "${fileBasenameNoExtension}",
+        "--config",
+        "jest.config.ts" //change here
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      }
+___________________________________________________________________
+Now. our debugger ready to work. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
