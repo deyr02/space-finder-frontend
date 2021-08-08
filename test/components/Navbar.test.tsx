@@ -1,7 +1,8 @@
 import  Navbar  from '../../src/components/Navbar';
 import ReactDOM from 'react-dom';
 import { User } from '../../src/model/Model';
-import { StaticRouter } from 'react-router'
+import { StaticRouter } from 'react-router';
+import {getByTestId} from '@testing-library/react';
 
 describe('Navbar test suite', () => {
 
@@ -34,5 +35,36 @@ describe('Navbar test suite', () => {
         expect(links[3].href).toBe(baseLink + '/logout')
     })
 
+    test('renders correctly with user using data test', () => {
+        container = document.createElement('div');
+        document.body.appendChild(container);
+        ReactDOM.render(
+            <StaticRouter>
+                <Navbar user={someUser} />
+            </StaticRouter>
+            , container);
+
+        const homeLink = getByTestId(container, 'home-link') as HTMLAnchorElement;
+        expect(homeLink.href).toBe(baseLink + '/');
+
+        const profileLink = getByTestId(container, 'profile-link') as HTMLAnchorElement;
+        expect(profileLink.href).toBe(baseLink + '/profile');
+
+        const spacesLink = getByTestId(container, 'space-link') as HTMLAnchorElement;
+        expect(spacesLink.href).toBe(baseLink + '/space');
+    })
+
+    test('renders correctly without user using data test', () => {
+        container = document.createElement('div');
+        document.body.appendChild(container);
+        ReactDOM.render(
+            <StaticRouter>
+                <Navbar user={undefined} />
+            </StaticRouter>
+            , container);
+
+        const loginLink = getByTestId(container, 'login-link') as HTMLAnchorElement;
+        expect(loginLink.href).toBe(baseLink + '/login');
+    })
 
 }) 
