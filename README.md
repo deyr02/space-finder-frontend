@@ -57,73 +57,73 @@ and Include the following lines
         export default config;
     _______________________________________
 
+# excluding file from test coverage
 
-# excluding file from test coverage 
 ## to exclude file test covere, we need add the file fath in collectCoverageFrom in the jest.config.ts file
+
 similar below
-_________________________
+
+---
+
     collectCoverageFrom: [
         'src/**/*.{ts,tsx}',
         '!src/services/**', //theser are the file excluded from the test coverage
         '!src/react-app-env.d.ts' // this one too
     ]
-_________________________
+
+---
 
 ## Anothe way to exclude file from test coverage by simpley comment the below line on the top of the compnent file
-__________________________
-/*istanbul ignore file */
-export default function App(){
-    .........
-}
-_________________________
 
+---
+
+/_istanbul ignore file _/
+export default function App(){
+.........
+}
+
+---
 
 # Debugging jest test
+
 ## First we need to creat debug configuration file
--> first we need to click on debugging tab 
--> click on  "Create launch.json file"
+
+-> first we need to click on debugging tab
+-> click on "Create launch.json file"
 -> Choose "Node Js" option (It will create a launch.json file in .vscode/ directory)
+
+---
+
 ![](debugging_config_1.jpg)
 
 ## we have get the right debugging confifuration from https://github.com/microsoft/vscode-recipes
+
 -> Choose debugging-jest-tests
--> copy the following codes and past it under confguration  in the launch.json file.
--> change the "jest.config.js" to "jest.config.ts". 
--> we also need to make sure ts-node is installed. 
+-> copy the following codes and past it under confguration in the launch.json file.
+-> change the "jest.config.js" to "jest.config.ts".
+-> we also need to make sure ts-node is installed.
 
-_______________________________________
-"type": "node",
-      "request": "launch",
-      "name": "Jest Current File",
-      "program": "${workspaceFolder}/node_modules/.bin/jest",
-      "args": [
-        "${fileBasenameNoExtension}",
+---
+
+        "type": "node",
+        "request": "launch",
+        "name": "Jest Current File",
+        "program": "${workspaceFolder}/node_modules/.bin/jest",
+            "args": [
+                "${fileBasenameNoExtension}",
         "--config",
-"jest.config.js"
-],
-"console": "integratedTerminal",
-"internalConsoleOptions": "neverOpen",
-"disableOptimisticBPs": true,
-"windows": {
-"program": "${workspaceFolder}/node_modules/jest/bin/jest",
-}
-___________________________________________________________________
-Now. our debugger ready to work. 
+        "jest.config.js"
+        ],
+        "console": "integratedTerminal",
+        "internalConsoleOptions": "neverOpen",
+        "disableOptimisticBPs": true,
+        "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+        }
 
+---
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+Now. our debugger ready to work.
 
 # Getting Started with Create React App
 
