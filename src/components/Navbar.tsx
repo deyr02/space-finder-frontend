@@ -10,12 +10,12 @@ export default function Navbar({user}:Props){
     return(
         <div className='navbar'>
             <Link to='/'>Home</Link>
-            <Link to='/Space'>Space</Link>
+            <Link to='/space'>Space</Link>
             <Link to='/profile'>Profile</Link>
            
             {
                 user?.userName ? 
-                <Link to='/Logout' style={{float:'right'}} >{user!.userName}</Link>
+                <Link to='/logout' style={{float:'right'}} >{user!.userName}</Link>
                     : 
                 <Link to='/login' style={{float:'right'}}>Login</Link>
             }
