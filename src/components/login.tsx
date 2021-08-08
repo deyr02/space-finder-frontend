@@ -28,20 +28,16 @@ export default function Login({authservice, setUser, setUserAttributes}: LoginPr
 
     async function handleSubmit(e:any){
         e.preventDefault();
+        setLoginState({...loginState, loginAttempted:true, loginSuccessful:false});
         const result = await authservice.login(loginState.userName, loginState.password);
-
-        if (result){
+        if (result?.userName){
            setLoginState({...loginState, loginAttempted:true, loginSuccessful:true});
            setUser(result);
            const attributes= await authservice.getUserAttributes(result);
            setUserAttributes(attributes!)
            history.push('/profile');
         }
-        else{
-           setLoginState({...loginState, loginAttempted:true, loginSuccessful:false});
-          
-       
-        }
+        
     }
    
     function handleInputChange(e:ChangeEvent<HTMLInputElement>){

@@ -39,7 +39,7 @@ export default function Spaces({dataService}:Props){
 
     function renderSpaces(){
         return  allSpace?.map(item =>(
-            <SpaceComponent spaceObject={item} reserveSpace={reserveSpace} />
+            <SpaceComponent key={item.spaceId} spaceObject={item} reserveSpace={reserveSpace} />
         ))
     }
 
