@@ -12,7 +12,7 @@ export default function ConfirmModalComponent({show, content, close}:Props){
                 <div className='modal-content'>
                     <h2>You tried to resrve and ...</h2>
                     <h3 className='modalText'>{content}</h3>
-                    <button  onClick={()=> close()} >Ok, close</button>
+                    <button className='modalButton'  onClick={()=> close()} >Ok, close</button>
                 </div>
             </div> : <div></div>
     )

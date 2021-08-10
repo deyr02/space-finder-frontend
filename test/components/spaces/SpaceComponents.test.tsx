@@ -1,7 +1,7 @@
 import { fireEvent } from '@testing-library/react';
 import ReactDOM from 'react-dom';
-import SpaceComponent from '../../src/components/spaces/SpaceComponent';
-import { SpaceObject } from '../../src/model/Model';
+import SpaceComponent from '../../../src/components/spaces/SpaceComponent';
+import { SpaceObject } from '../../../src/model/Model';
 
 
 
