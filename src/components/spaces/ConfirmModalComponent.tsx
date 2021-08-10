@@ -14,6 +14,6 @@ export default function ConfirmModalComponent({show, content, close}:Props){
                     <h3 className='modalText'>{content}</h3>
                     <button className='modalButton'  onClick={()=> close()} >Ok, close</button>
                 </div>
-            </div> : <div></div>
+            </div> : <></>
     )
 }
