@@ -13,6 +13,7 @@ import Spaces from './spaces/Spaces';
 
 
 
+/*istanbul ignore file */
 function App() {
 
   const authService:AuthService = new AuthService();
